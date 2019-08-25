@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+}
+
+
+
+*
+{
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+
+
+div.widget
+{
+  position: relative;
+  width: 355px;
+  height: 125px;
+  margin: 150px auto;
+  background-color: #fcfdfd;
+  border-radius: 9px;
+  padding: 25px;
+  padding-right: 30px;
+  box-shadow: 0px 31px 35px -26px #080c21;
+}
+
+div.left-panel
+{
+  
+}
+
+div.date
+{
+  font-size: 14px;
+  font-weight: bold;
+  color: rgba(0,0,0,0.5);
+}
+
+div.city
+{
+  font-size: 21px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-top: 5px;
+  color: rgba(0,0,0,0.7);
+}
+
+div.temp
+{
+  font-size: 81px;
+  color: rgba(0,0,0,0.9);
+  font-weight: 100;
+}
+
+div.panel
+{
+  display: inline-block;
+}
+
+div.right-panel
+{
+  position: absolute;
+  float: right;
+  top: 0;
+  margin-top: 35px;
+  padding-left: 10px;
+}
+</style>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+  </head>
+  <body><br>
+   <h1><img src="https://cdn.pixabay.com/photo/2015/06/12/18/31/cute-807306_960_720.png" alt="" style= "width:200px;height:100px;">
+    Hi iam Trainmaster </h1>
+   
+	
+
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Hyderabad</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">Mumbai</button>
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Chennai</button>
+  <button class="tablinks" onclick="openCity(event, 'kolkata')">kolkata</button>
+  <button class="tablinks" onclick="openCity(event, 'Delhi')">Delhi</button>
+  <button class="tablinks" onclick="openCity(event, 'kerala')">kerala</button>
+  <button class="tablinks" onclick="openCity(event, 'Uttarapradesh')">Uttarapradesh</button>
+</div>
+
+<div id="London" class="tabcontent">
+  <h3>Hyderabad</h3>
+  <p>Secunderabad Junction</p> <br>
+    <p> Hyderabad Deccan Nampally Railway Station</P>
+</div>
+
+<div id="Paris" class="tabcontent">
+  <h3>mumbai</h3>
+  <p>Kalyan Junction.</p> <br>
+  <p>Mumbai Dadar Central Railway Station</p>
+</div>
+
+<div id="Tokyo" class="tabcontent">
+  <h3>chennai</h3>
+  <p>Chennai Central Railway Station</p><br>
+  <p>Chennai Egmore Railway Station</p>
+</div>
+<div id="kolkata" class="tabcontent">
+  <h3>Kolkata</h3>
+  <p>Kolkata Howrah Junction</p><br>
+  <p>Kolkata Sealdah Railway Station</p>
+</div>
+<div id="Delhi" class="tabcontent">
+  <h3>New Delhi</h3>
+  <p>New Delhi Railway Station</p><br>
+  <p>Hazrat Nizamuddin Railway Station</p>
+</div>
+<div id="kerala" class="tabcontent">
+  <h3>kerala</h3>
+  <p>Koratla Railway Station</p><br>
+  <p>Kirakat Railway Station</p>
+</div>
+<div id="Uttarapradesh" class="tabcontent">
+  <h3>Uttarapradesh</h3>
+  <p>Uttarpara Railway Station</p>
+  
+</div>
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+
+</script>
+
+    <div id="test">
+      <div id="chatbox">
+        <p class="botText"><span>Hi! I'm Your Personal assistance.</span></p><br>
+		<p class="botText"><span>Where do you want to go?</span></P>
+      </div>
+      <div id="userInput">
+	  
+        <input id="textInput" type="text" name="msg" placeholder="Message">
+		
+        <input id="buttonInput" type="submit" value="Send">
+		</div>
+		<div class="tab">
+		<center><button class="tablinks" onclick="openCity(event,'Conversation')">Offers</button>
+        <button class="tablinks" onclick="openCity(event,'FAQ')">FAQ</button></center>
+      </div>
+	  <div id="Conversation" class="tabcontent">
+  <h3>Offers</h3>
+  <button class="accordion">What do you get?</button>
+
+<div class="panel"><p>Get 10% (up to Rs.100) instant discount on Train bookings
+Discount will be calculated on the booking amount (excluding ancillaries, convenience fee and taxes)
+How do you get it?</div>
+
+To avail this offer, customer must enter E-Coupon GOBOBTR for Trains
+The offer will be valid on Bank of Baroda Credit Cards
+The offer is valid on from 20th Aug to 8th September 2019 (both days included)
+The offer is valid for bookings made on Goibibo’s Android & iOS App only
+Update the latest version of Android and iOS app to get this offer
+The offer is valid on bookings made between 0000 hrs to 2359 hrs</div>
+<button class="accordion">What else do you need to know?</button>
+
+<div class="panel"><p>Offer is not applicable on payments made through Wallet (Goibibo Wallet - bonus amount), 3rd party wallets, COD, Pay Pal
+Customer cannot use goCash & goCash+ wallet balance with this offer
+Instant discount will be calculated on total fare.</div>
+<button class="accordion">Conditions in case of cancellation</button>
+
+<div class="panel"><p>In case of full/partial cancellation the offer stands void and customer will not be eligible for discounts
+The Customer shall not be entitled to discounts in the event of cancellation of booking. Goibibo will refund the purchase price after deducting the discount amount and any other applicable cancellation charges/penalty</p> 
+</div>
+	  <div id="FAQ" class="tabcontent">
+	  <h3>FAQ</h3>
+	  <button class="accordion">1. How can tickets be booked for train travel?</button>
+<div class="panel">A: Indian rail currently provides following ways to book tickets:
+
+Reservation at railway counters
+Online reservation from https://irctc.co.in
+Reservation through registered agents and agencies</p></div>
+<button class="accordion">2. How many passengers can be booked in a single ticket/transaction?</button>
+<div class="panel"><p>A: A maximum of 6 passenger for general and upto 4 passenger for tatkal.</p></div>
+
+<button class="accordion">3. Can bulk booking be done through IRCTC?</button>
+<div class="panel"><p>A: No. Bulk booking cannott be done on the internet.</p></div>
+
+<button class="accordion">4. I would like to transfer my ticket to a friend. What is the process?</button>
+<div class="panel"><p>A: The rail ticket can’t be transferred to a friend. It can be transferred to blood relations (including father, mother, brother, sister, son, daughter, husband or wife) only. For transfer of ticket, an application must be submitted at least 24 hours in advance of the scheduled departure of the train to the station manager/chief reservation supervisor.</p></div>
+
+
+<button class="accordion">5. The name on the ticket is incorrect. How do I get it corrected?</button>
+<div class="panel"><p>A: It can’t be done once the ticket is reserved. You need to manually cancel the ticket and rebook again.</p></div>
+
+
+<button class="accordion">6. How many days before can a reservation be done?</button>
+<div class="panel"><p>A: Both the online and offline mode of reservation starts 90 days before the date of journey.</p></div>
+
+
+<button class="accordion">7. How are payment made for online reservation?</button>
+<div class="panel"><p>A: The following modes are available:</p>
+
+Credit card
+Debit card
+Mobile/Net banking
+EMI/cash card</div>
+
+<button class="accordion">8. My e-ticket got accidentally deleted from my mail account. How can I get another copy to be sent to me?
+<div class="panel">A: There is no facility to resend the ticket as mail but you can take the print of you ticket anytime. Just visit https://irctc.co.in and login to your account. There you go to the booked history section and select the ticket and print. You can also enter the PNR number and print the ticket.
+
+</p></div>
+
+	  <script>
+        function getBotResponse() {
+          var rawText = $("#textInput").val();
+          var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
+          $("#textInput").val("");
+          $("#chatbox").append(userHtml);
+          document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+          $.get("/get", { msg: rawText }).done(function(data) {
+            var botHtml = '<p class="botText"><span>' + data + '</span></p>';
+            $("#chatbox").append(botHtml);
+            document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+          });
+        }
+        $("#textInput").keypress(function(e) {
+            if(e.which == 13) {
+                getBotResponse();
+            }
+        });
+        $("#buttonInput").click(function() {
+          getBotResponse();
+        })
+      </script>
+	  <script>
+var acc = document.getElementsByClassName("accordion");
+var k;
+
+for (k = 0; k < acc.length; k++) {
+  acc[k].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
+    </div>
+  </body>
+</html>
